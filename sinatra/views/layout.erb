@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <title>Scrum Poker</title>
+  <link rel="stylesheet" href="<%= url('/css/all.css') %>" type="text/css" />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://js.pusher.com/1.11/pusher.min.js" ></script>
+
+  <% if defined?(cards) %>
+    <script type="text/javascript">
+      // Enable pusher logging - don't include this in production
+      Pusher.log = function(message) {
+        if (window.console && window.console.log) window.console.log(message);
+      };
+
+      // Flash fallback logging - don't include this in production
+      WEB_SOCKET_DEBUG = true;
+
+      var room = '<%= @room %>';
+      var owner = '<%= @owner %>' == 'true';
+      var pusher = new Pusher('<%= Pusher.key %>');
+      var channel = pusher.subscribe('presence-<%= @room %>');
+      channel.bind('pusher:subscription_succeeded', function(members) {
+        updateMemberCount(members.count);
+
+        members.each(function(member) {
+          addMember(member.id, member.info);
+        });
+
+        getVotes();
+      });
+
+      channel.bind('pusher:member_added', function(member) {
+        addMember(member.id, member.info);
+      });
+
+      channel.bind('pusher:member_removed', function(member) {
+        removeMember(member.id);
+      });
+
+      channel.bind('reset-cards', function(data) {
+        resetAll();
+      });
+
+      channel.bind('open-cards', function(data) {
+        openCards(data);
+      });
+
+      channel.bind('voted', function(data) {
+        voteMember(data.id);
+        if (owner) checkVotes();
+      });
+    </script>
+    <script type="text/javascript" src="<%= url('/js/all.js') %>"></script>
+  <% end %>
+</head>
+<body>
+  <%= styled_flash %>
+
+  <%= yield %>
+</body>
+</html>

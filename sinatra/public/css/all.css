@@ -1,0 +1,15 @@
+.card {
+  display: inline-block;
+  border: 1px solid #ddd;
+  width: 100px;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+}
+.card.enabled {
+  border-color: black;
+}
+
+.member.voted {
+  color: green;
+}

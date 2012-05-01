@@ -1,0 +1,16 @@
+<% cards.each do |card| %>
+  <a href="#" class="card card-<%= card %>" data-card="<%= card %>"><%= card %></a>
+<% end %>
+
+<hr/>
+Members (<span id="member-count">0</span>):
+<div id="members"></div>
+
+<div id="result"></div>
+
+<% if @owner %>
+  <hr/>
+  <a href="#" id="reset-cards">Reset</a>
+  <hr/>
+  <a href="#" id="open-cards">Finish</a>
+<% end %>
