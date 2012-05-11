@@ -43,7 +43,7 @@ test:
   encoding: unicode
   database: estimatr_test
   pool: 5
-  username: estimatr
+  username: postgres
   password:
 
 production:

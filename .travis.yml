@@ -9,4 +9,6 @@ rvm:
 before_install:
   - gem install bundler
 before_script:
+  - cp config/examples/database.yml config/
+  - psql -c 'create database estimatr_test;' -U postgres
   - bundle exec rake db:test:prepare
