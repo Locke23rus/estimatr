@@ -12,4 +12,4 @@ before_script:
   - cp config/examples/database.yml config/
   - psql -c 'create database estimatr_test;' -U postgres
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate test
+  - RAILS_ENV=test bundle exec rake --trace db:migrate spec
