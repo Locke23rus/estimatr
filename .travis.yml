@@ -11,4 +11,5 @@ before_install:
 before_script:
   - cp config/examples/database.yml config/
   - psql -c 'create database estimatr_test;' -U postgres
-  - rake db:test:prepare
+script:
+  - RAILS_ENV=test bundle exec rake --trace db:migrate test
