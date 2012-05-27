@@ -30,6 +30,7 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.10.1'
 end
 
+# To use ActiveModel has_secure_password//= require ember
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
