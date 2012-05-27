@@ -18,7 +18,6 @@
 //= require_self
 //= require estimatr
 //= require_tree .
-//= require ember
 //= require ember/app
 
 Estimatr = Ember.Application.create();
