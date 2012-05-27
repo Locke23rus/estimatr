@@ -18,6 +18,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "ember-rails", "~> 0.5.0"
 
 group :development do
   gem 'heroku'
