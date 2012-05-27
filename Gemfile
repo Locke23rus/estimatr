@@ -18,6 +18,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "ember-rails", "~> 0.5.0"
 
 group :development do
   gem 'heroku'
@@ -29,7 +30,6 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.10.1'
 end
 
-# To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
