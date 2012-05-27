@@ -19,11 +19,17 @@ end
 
 gem 'jquery-rails'
 
+gem 'omniauth', '~> 1.1.0'
+gem 'omniauth-twitter', '~> 0.0.11'
+
 group :development do
   gem 'heroku'
   gem 'foreman'
 end
 
+group :test do
+  gem 'ffaker', '~> 1.14.0'
+end
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.10.1'

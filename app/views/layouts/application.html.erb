@@ -52,9 +52,11 @@
               <h3>Sidebar</h3>
               <ul class="nav nav-list">
                 <li class="nav-header">Sidebar</li>
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Sign in with Github", user_omniauth_authorize_path(:github) %></li>
-                <li><%#= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+                <% if signed_in? %>
+                  <li><%= link_to 'Sign out', sign_out_path %></li>
+                <% else %>
+                  <li><%= link_to 'Sign in with Twitter', '/auth/twitter' %></li>
+                <% end %>
               </ul>
             </div><!--/.well -->
           </div><!--/span-->
