@@ -53,7 +53,7 @@
               <ul class="nav nav-list">
                 <li class="nav-header">Sidebar</li>
                 <% if signed_in? %>
-                  <li><%= link_to 'Sign out', sign_out_path %></li>
+                  <li><%= link_to 'Sign out', sign_out_path, :method => :delete %></li>
                 <% else %>
                   <li><%= link_to 'Sign in with Twitter', '/auth/twitter' %></li>
                 <% end %>

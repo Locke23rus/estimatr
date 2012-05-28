@@ -29,6 +29,7 @@ end
 
 group :test do
   gem 'ffaker', '~> 1.14.0'
+  gem 'shoulda-matchers', '~> 1.1.0'
 end
 
 group :test, :development do
