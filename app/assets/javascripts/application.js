@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require ember
+//= require ember-data
+//= require_self
+//= require estimatr
 //= require_tree .
+//= require ember/app
+
+Estimatr = Ember.Application.create();

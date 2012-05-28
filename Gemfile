@@ -18,6 +18,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "ember-rails", "~> 0.5.0"
 
 gem 'omniauth', '~> 1.1.0'
 gem 'omniauth-twitter', '~> 0.0.11'
